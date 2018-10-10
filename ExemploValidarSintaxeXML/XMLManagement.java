@@ -1,4 +1,3 @@
-import core.GestorXML;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,7 +54,7 @@ public class XMLManagement {
             document.getDocumentElement().normalize();
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             if (logOnError) {
-                Logger.getLogger(GestorXML.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+                Logger.getLogger(XMLManagement.class.getName()).log(Level.SEVERE, null, ex.getMessage());
             }
             return false;
         }
