@@ -1,5 +1,4 @@
 
-package Examples;
 
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
