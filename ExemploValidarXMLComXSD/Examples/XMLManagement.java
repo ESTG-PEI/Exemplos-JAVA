@@ -1,4 +1,4 @@
-
+﻿
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -110,24 +110,5 @@ public class XMLManagement {
     public boolean validate(boolean output) {
         return xsdFile == null || xsdFile.isEmpty() ? true : XMLManagement.validate(new File(xmlFile), new File(xsdFile), output);
     }
-    
-   public static void main(String[] args){
-       //String XML = "files/emails.xml";
-     //  String XML = "files/Exemplo1PessoaBase/ExemploXML1.xml";
-      //  String XSD = "files/Exemplo1PessoaBase/ExemploXSD1.xsd";
-       // String XML = "files/Exemplo2PessoaComGenero/ExemploXML2.xml";
-      //  String XSD = "files/Exemplo2PessoaComGenero/ExemploXSD2.xsd";
-      //String XML = "files/Exemplo4Atributos/ExemploXML4.xml";
-      //String XSD = "files/Exemplo4Atributos/ExemploXSD4.xsd";
-        String XML = "files/Exemplo5Include/ExemploXML5.xml";
-      String XSD = "files/Exemplo5Include/ExemploXSD5Elements.xsd";
-        XMLManagement management = new XMLManagement(XML, XSD);
-        if(management.read(false)){
-            System.out.println("Ficheiro Válido");
-            if(management.validate(true)){
-                System.out.println("Documento válido de acordo com o XSD");
-            }
-        };
-    }
-    
+        
 }
