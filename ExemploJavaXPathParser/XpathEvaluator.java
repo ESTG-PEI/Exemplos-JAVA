@@ -18,7 +18,7 @@ public class XpathEvaluator {
             return (String) xPath.compile(xpathExpression).evaluate(document, XPathConstants.STRING);
 
         } catch (XPathExpressionException ex) {
-            Logger.getLogger(GestorXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XMLManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new XpathNoResultsException();
     }
@@ -29,7 +29,7 @@ public class XpathEvaluator {
             return (Double) xPath.compile(xpathExpression).evaluate(document, XPathConstants.NUMBER);
 
         } catch (XPathExpressionException ex) {
-            Logger.getLogger(GestorXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XMLManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new XpathNoResultsException();
     }
@@ -40,7 +40,7 @@ public class XpathEvaluator {
             return (Boolean) xPath.compile(xpathExpression).evaluate(document, XPathConstants.BOOLEAN);
 
         } catch (XPathExpressionException ex) {
-            Logger.getLogger(GestorXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XMLManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new XpathNoResultsException();
     }
@@ -51,7 +51,7 @@ public class XpathEvaluator {
             return (Node) xPath.compile(xpathExpression).evaluate(document, XPathConstants.NODE);
 
         } catch (XPathExpressionException ex) {
-            Logger.getLogger(GestorXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XMLManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new XpathNoResultsException();
     }
@@ -61,7 +61,7 @@ public class XpathEvaluator {
         try {
             return (Node) xPath.compile(xpathExpression).evaluate(document, XPathConstants.NODESET);
         } catch (XPathExpressionException ex) {
-            Logger.getLogger(GestorXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XMLManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
         throw new XpathNoResultsException();
     }
