@@ -8,6 +8,7 @@ import org.w3c.dom.Document;
 import core.exceptions.XpathNoResultsException;
 import javax.xml.xpath.XPathConstants;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 
 public class XpathEvaluator {
@@ -56,10 +57,10 @@ public class XpathEvaluator {
         throw new XpathNoResultsException();
     }
 
-    public static Node applyXpathExpressionToNodeSet(String xpathExpression, Document document) throws XpathNoResultsException {
+    public static NodeList applyXpathExpressionToNodeSet(String xpathExpression, Document document) throws XpathNoResultsException {
         XPath xPath = XPathFactory.newInstance().newXPath();
         try {
-            return (Node) xPath.compile(xpathExpression).evaluate(document, XPathConstants.NODESET);
+            return (NodeList) xPath.compile(xpathExpression).evaluate(document, XPathConstants.NODESET);
         } catch (XPathExpressionException ex) {
             Logger.getLogger(XMLManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
