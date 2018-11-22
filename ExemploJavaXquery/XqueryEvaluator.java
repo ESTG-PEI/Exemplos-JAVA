@@ -13,8 +13,9 @@ import javax.xml.xquery.XQPreparedExpression;
 import javax.xml.xquery.XQResultSequence;
 
 public class XqueryEvaluator {
-
-    public static void execute(String path, String query) {
+	
+    // Deve ser criado um ficheir com a extensão: xqy, contendo a consulta
+    public static void execute(String path, String filenameWithQuery) {
         try {
             InputStream inputStream = new FileInputStream(new File(path + query));
             XQDataSource ds = new SaxonXQDataSource();
