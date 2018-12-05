@@ -1,0 +1,1 @@
+# Exemplo de um serviço SOAP. É disponibilizado um projeto Netbeans que utiliza o servidor Glassfish (tem de ser instalado como plugin do Netbeans) para executar o serviço.
