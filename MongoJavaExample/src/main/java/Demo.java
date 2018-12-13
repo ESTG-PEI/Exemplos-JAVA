@@ -1,4 +1,13 @@
 import com.mongodb.*;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import org.bson.conversions.Bson;
+
+import java.net.UnknownHostException;
+
+import static com.mongodb.client.model.Filters.eq;
 
 /**
  * Getting Started with MongoDB and Java: Example retrieved from: https://www.mongodb.com/blog/post/getting-started-with-mongodb-and-java-part-i
@@ -6,14 +15,15 @@ import com.mongodb.*;
  * Run the example using: gradle run
  */
 public class Demo {
-    public static void main(String args[]) throws java.net.UnknownHostException {
+    public static void main(String args[]) {
         MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
-        DB database = mongoClient.getDB("restaurantsDB");
-        DBCollection collection = database.getCollection("restaurants");
-        DBObject query = new BasicDBObject("borough", "Bronx");
-        DBCursor cursor = collection.find(query);
-        while(cursor.hasNext()){
-            System.out.println(cursor.next());
+        MongoDatabase database = mongoClient.getDatabase("restaurantsDB");
+        MongoCollection<Document> collection = database.getCollection("restaurants");
+        Bson filter = eq("borough", "Bronx");
+        FindIterable<Document> cursor = collection.find(filter);
+        while(cursor.iterator().hasNext()){
+            System.out.println(cursor.iterator().next());
         }
+
     }
 }
