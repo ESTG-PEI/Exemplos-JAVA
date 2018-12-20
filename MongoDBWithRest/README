@@ -1,3 +1,5 @@
+Utilizar a versão 5 do gradle!!
+
 Para executar:
 gradle build
 gradle bootRun
