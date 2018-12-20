@@ -5,5 +5,5 @@ gradle build
 gradle bootRun
 
 Exemplo de invocação do método:aggregateRestaurantsByQueryString
-http://localhost:8080/aggregateRestaurantsByQueryString?query=%7B%24group%3A%7B%22_id%22%3Anull%2Ccount%3A%7B%24sum%3A1%7D%7D%7D
+http://localhost:9090/aggregateRestaurantsByQueryString?query=%7B%24group%3A%7B%22_id%22%3Anull%2Ccount%3A%7B%24sum%3A1%7D%7D%7D
 Para codificar a consulta do mongo para a codificação em URL podem utilizar (por exemplo): https://meyerweb.com/eric/tools/dencoder/
