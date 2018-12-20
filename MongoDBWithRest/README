@@ -1,3 +1,5 @@
+---Exemplo de um serviço REST que comunica com o Mongo para a execução de queries---
+
 Utilizar a versão 5 do gradle!!
 
 Para executar:
