@@ -4,9 +4,6 @@
     <list default="true" id="b5e20898-14b3-45d5-a5f7-141377e91cce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../MongoDBWithRest/src/main/java/app/MongoConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MongoDBWithRest/src/main/java/app/MongoConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MongoDBWithRest/src/main/java/app/RestaurantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MongoDBWithRest/src/main/java/app/RestaurantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MongoJavaExample/.idea/modules/MongoJavaDriverDemo_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../MongoJavaExample/.idea/modules/MongoJavaDriverDemo_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MongoJavaExample/.idea/modules/MongoJavaDriverDemo_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../MongoJavaExample/.idea/modules/MongoJavaDriverDemo_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -471,10 +468,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1100" />
+    <option name="x" value="82" />
+    <option name="y" value="-13" />
+    <option name="width" value="1918" />
+    <option name="height" value="918" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -526,7 +523,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545313471549" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545315815695" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />

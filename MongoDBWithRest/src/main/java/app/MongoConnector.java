@@ -1,16 +1,13 @@
 package app;
 
 import com.mongodb.BasicDBObject;
-import com.mongodb.Block;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.json.JSONArray;
-import org.json.JSONObject;
+
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -26,14 +23,6 @@ public class MongoConnector {
         mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
     }
 
-    /**
-     *
-     * @param databaseName
-     * @param collectionName
-     * @param field
-     * @param value
-     * @return
-     */
     public String getData(String databaseName, String collectionName, String field, String value){
         MongoDatabase database = mongoClient.getDatabase(databaseName);//"restaurantsDB"
         MongoCollection<Document> collection = database.getCollection(collectionName);//"restaurants"
@@ -43,6 +32,9 @@ public class MongoConnector {
         //while(cursor.iterator().hasNext()) {
         //    System.out.println(cursor.iterator().next());
         //}
+
+        //Mapear o resultado para um array em JSON
+        //NOTA: Apenas apresenta os 10 primeiros resultados (limit(10))
         return StreamSupport.stream(collection.find(filter).limit(10).spliterator(), false)
                 .map(Document::toJson)
                 .collect(Collectors.joining(", ", "[", "]")).toString();
@@ -52,6 +44,7 @@ public class MongoConnector {
         MongoDatabase database = mongoClient.getDatabase(databaseName);//"restaurantsDB"
         MongoCollection<Document> collection = database.getCollection(collectionName);//"restaurants"
         BasicDBObject q = BasicDBObject.parse(query);
+        //Mapear o resultado para um array em JSON
         return StreamSupport.stream(collection.aggregate(Arrays.asList(q)).spliterator(), false)
                 .map(Document::toJson)
                 .collect(Collectors.joining(", ", "[", "]")).toString();
