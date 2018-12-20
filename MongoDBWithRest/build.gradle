@@ -1,0 +1,34 @@
+buildscript {
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'application'
+}
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+application {
+    mainClassName = "app.Application"
+}
+repositories {
+    mavenCentral()
+}
+version '1.0-SNAPSHOT'
+
+targetCompatibility = 1.8
+
+
+bootJar {
+    baseName = 'gs-rest-service'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.9.1'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile('org.springframework.boot:spring-boot-starter-test')
+}
