@@ -12,7 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestaurantController {
 
     @RequestMapping("/restaurants")
-    public String getRestaurants(@RequestParam(value="name", defaultValue="World") String name) {
-        return new String("getRestaurants");
+    public String getRestaurants(@RequestParam(value="field") String field) {
+        MongoConnector mongo = new MongoConnector();
+        String res = mongo.getData("restaurantsDB", "restaurants", "borough", "Bronx");
+        return res;
+    }
+
+    @RequestMapping("/aggregateRestaurantsByQueryString")
+    public String aggregateRestaurantsByQueryString(@RequestParam(value="query") String query) {
+        //Example: %7B%24group%3A%7B%22_id%22%3Anull%2Ccount%3A%7B%24sum%3A1%7D%7D%7D para {$group:{"_id":null,count:{$sum:1}}} -> utilizar: https://meyerweb.com/eric/tools/dencoder/
+        MongoConnector mongo = new MongoConnector();
+        String res = mongo.aggregateDataByQueryString("restaurantsDB", "restaurants", query);
+        return res;
     }
 }

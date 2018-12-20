@@ -10,7 +10,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="MongoJavaDriverDemo_main" />
-    <orderEntry type="library" name="Gradle: org.mongodb:mongo-java-driver:2.12.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.mongodb:mongo-java-driver:3.9.1" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="MongoJavaDriverDemo_main" />
 </module>
