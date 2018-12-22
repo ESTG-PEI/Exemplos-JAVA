@@ -1,6 +1,7 @@
 import com.mongodb.*;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -20,9 +21,10 @@ public class Demo {
         MongoDatabase database = mongoClient.getDatabase("restaurantsDB");
         MongoCollection<Document> collection = database.getCollection("restaurants");
         Bson filter = eq("borough", "Bronx");
-        FindIterable<Document> cursor = collection.find(filter);
-        while(cursor.iterator().hasNext()){
-            System.out.println(cursor.iterator().next());
+        FindIterable<Document> cursor = collection.find(filter).limit(2);
+        MongoCursor it = cursor.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
         }
 
     }
