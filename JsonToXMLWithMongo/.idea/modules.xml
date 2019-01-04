@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MongoJavaDriverDemo.iml" filepath="$PROJECT_DIR$/.idea/modules/MongoJavaDriverDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MongoJavaDriverDemo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MongoJavaDriverDemo_main.iml" group="MongoJavaDriverDemo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MongoJavaDriverDemo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MongoJavaDriverDemo_test.iml" group="MongoJavaDriverDemo" />
+    </modules>
+  </component>
+</project>
