@@ -31,7 +31,7 @@ public class MongoConnector {
         MongoDatabase database = mongoClient.getDatabase(databaseName);//"restaurantsDB"
         MongoCollection<Document> collection = database.getCollection(collectionName);//"restaurants"
         Bson filter = eq(field, value);//borough, bronx
-        
+
         //NOTA: Apenas apresenta os 10 primeiros resultados (limit(10))
         return StreamSupport.stream(collection.find(filter).limit(10).spliterator(), false)
                 .map(Document::toJson)
