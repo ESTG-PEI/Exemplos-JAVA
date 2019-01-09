@@ -7,9 +7,13 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -27,27 +31,47 @@ public class MongoConnector {
         MongoDatabase database = mongoClient.getDatabase(databaseName);//"restaurantsDB"
         MongoCollection<Document> collection = database.getCollection(collectionName);//"restaurants"
         Bson filter = eq(field, value);//borough, bronx
-
-        //Print for testing
-        //while(cursor.iterator().hasNext()) {
-        //    System.out.println(cursor.iterator().next());
-        //}
-
-        //Mapear o resultado para um array em JSON
+        
         //NOTA: Apenas apresenta os 10 primeiros resultados (limit(10))
         return StreamSupport.stream(collection.find(filter).limit(10).spliterator(), false)
                 .map(Document::toJson)
                 .collect(Collectors.joining(", ", "[", "]")).toString();
     }
 
+    /**
+     * Método que permite aplicar vários stages ao método aggregate
+     * @param databaseName
+     * @param collectionName
+     * @param query A query deverá ser enviada com os parêntesis retos (representando os vários stages aplicados ao método aggregate. Por exemplo: "[{},{}]"
+     * @return
+     */
     public String aggregateDataByQueryString(String databaseName, String collectionName, String query){
         MongoDatabase database = mongoClient.getDatabase(databaseName);//"restaurantsDB"
         MongoCollection<Document> collection = database.getCollection(collectionName);//"restaurants"
-        BasicDBObject q = BasicDBObject.parse(query);
+        List<Document> myList=this.getAggregateStagesFromString(query);
         //Mapear o resultado para um array em JSON
-        return StreamSupport.stream(collection.aggregate(Arrays.asList(q)).spliterator(), false)
+        return StreamSupport.stream(collection.aggregate(myList).spliterator(), false)
                 .map(Document::toJson)
                 .collect(Collectors.joining(", ", "[", "]")).toString();
+    }
+
+    /**
+     * Método responsável por interpretar a consulta aplicada ao método aggregate de forma a aplicar vários stages
+     *
+     * @param query A query deverá ser enviada com os parêntesis retos (representando os vários stages aplicados ao método aggregate. Por exemplo: "[{},{}]"
+     * @return Lista de documentos JSON com a composição de cada stage
+     */
+    public List<Document> getAggregateStagesFromString(String query){
+        List<Document> myList = new ArrayList<>();
+        try {
+            JSONArray jsonObj = new JSONArray(query);
+            for(int i=0;i<jsonObj.length();i++){
+                myList.add(Document.parse(jsonObj.get(i).toString()));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return myList;
     }
 
 

@@ -55,7 +55,7 @@ public class Demo {
      * Método responsável por tratar o formato das datas do MongoDB. O método utiliza o formato ISODate
      *  (exemplo:ISODate("2014-03-03T00:00:00Z")) para uma string que respeite o formato datetime
      *  do XSD(Exemplo: 2012-06-15T00:00:00Z)
-     *  
+     *
      * @param obj Documento a processar
      */
     public static void processDate(Document obj){
